@@ -16,7 +16,7 @@ export default function MainTabNavigator() {
   const colorScheme = useColorScheme();
 
   return (
-    <MainTab.Navigator
+ <MainTab.Navigator
       initialRouteName="CHAT"
       tabBarOptions={{
         activeTintColor: Colors[colorScheme].background,
@@ -31,27 +31,11 @@ export default function MainTabNavigator() {
           fontWeigth: 'bold'
         },
         showIcon: true,
-      }}>
+    }}>
 
-      <MainTab.Screen
-        name="CAMERA"
-        component={TabOneNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <Fontisto name="camera" color={color} size={18} />,
-          tabBarLabel: () => null
-        }}
-      />
       <MainTab.Screen
         name="CHATS"
         component={ChatsScreen}
-      />
-      <MainTab.Screen
-        name="STATUS"
-        component={TabTwoNavigator}
-      />
-      <MainTab.Screen
-        name="CALLS"
-        component={TabTwoNavigator}
       />
     </MainTab.Navigator >
   );
@@ -76,19 +60,5 @@ function TabOneNavigator() {
         options={{ headerTitle: 'Tab One Title' }}
       />
     </TabOneStack.Navigator>
-  );
-}
-
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
-
-function TabTwoNavigator() {
-  return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
-      />
-    </TabTwoStack.Navigator>
   );
 }
